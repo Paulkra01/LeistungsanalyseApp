@@ -1,15 +1,22 @@
 import my_functions as mf
 import json
+import my_classes as mc
 
-experiment_name = input("experiment name:")
-supervisor = input("supervisor:")
-date = input("date:")
-subject = input("subject:")
+
 
 if __name__ == "__main__":
-    experiment = mf.build_experiment(experiment_name,supervisor,date,subject)
-    print(experiment)
+    experiment_name = input("experiment name:")
+    supervisor = input("supervisor:")
+    date = input("date:")
+    subject = input("subject:")
 
-# Convert and write JSON object to file
-with open("sample.json", "a") as outfile: 
-    json.dump(experiment, outfile)
+    first_name = input("first name:")
+    last_name = input("last name:")
+    sex = input("sex:")
+    age = input("age:")
+
+    experiment = mc.Experiment(experiment_name,supervisor,date,subject)
+    person = mc.Person(first_name, last_name, sex, age)
+
+    mc.Experiment.save(experiment, "experiment.json")
+    mc.Person.save(person,"person.json")
