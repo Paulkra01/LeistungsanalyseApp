@@ -13,7 +13,7 @@ if __name__ == "__main__":
     first_name = input("first name:")
     last_name = input("last name:")
     sex = input("sex:")
-    age = input("age:")
+    age = int(input("age:"))
 
     experiment = mc.Experiment(experiment_name,supervisor,date,subject)
     person = mc.Person(first_name, last_name, sex, age)
