@@ -35,3 +35,10 @@ class Experiment():
     def save(self, file_name):
         with open(file_name, "w") as file:
             json.dump(self.__dict__, file)
+
+
+class Examiner(Person):
+    pass
+
+class Subject(Person):
+    pass
