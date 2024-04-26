@@ -29,7 +29,6 @@ class Person():
 
         
 
-
 class Experiment():
     def __init__(self, experiment_name, date, supervisor, subject):
         self.experiment_name = experiment_name
@@ -43,12 +42,8 @@ class Experiment():
 
 
 class Supervisor(Person):
-    def __init__(self, first_name, last_name, sex, birthdate):
+    def __init__(self, first_name, last_name):
         super().__init__(self, first_name, last_name)
-        self.sex = sex
-        self.birthdate = birthdate
-        self.age = self.calc_age(birthdate)
-
 
 class Subject(Person):
     def __init__(self, first_name, last_name, sex, birthdate):
