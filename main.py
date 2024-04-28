@@ -1,5 +1,4 @@
 import my_functions as mf
-import json
 import my_classes as mc
 import os
 
@@ -8,10 +7,10 @@ if __name__ == "__main__":
     experiment_name = input("experiment name: ")
     date = input("date: ")
 
-    subject = input("subject: ")
+
     supervisor = mc.Supervisor(
         first_name=input("supervisor first name: "),
-        last_name=input("supervisor last name: ")),
+        last_name=input("supervisor last name: "))
 
 
     subject = mc.Subject(

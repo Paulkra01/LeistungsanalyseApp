@@ -3,11 +3,9 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 class Person():
-    def __init__(self, first_name, last_name, sex, age):
+    def __init__(self, first_name, last_name):
         self.first_name = first_name
         self.last_name = last_name
-        self.sex = sex
-        self.age = age
 
     def save(self, file_name):
         with open(file_name, "w") as file:
@@ -44,11 +42,11 @@ class Experiment():
 
 class Supervisor(Person):
     def __init__(self, first_name, last_name):
-        super().__init__(self, first_name, last_name)
+        super().__init__(first_name, last_name)
 
 class Subject(Person):
     def __init__(self, first_name, last_name, sex, birthdate):
-        super().__init__(self, first_name, last_name)
+        super().__init__(first_name, last_name)
         self.sex = sex
         self.birthdate = birthdate
         self.age = self.calc_age(birthdate)
