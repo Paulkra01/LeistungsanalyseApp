@@ -11,20 +11,7 @@ class Person():
         with open(file_name, "w") as file:
             json.dump(self.__dict__, file)
 
-    def estimate_max_hr(self, sex, age):
-        if sex == "male":
-            max_hr_bpm =  223 - 0.9 * age
-        elif sex == "female":
-            max_hr_bpm = 226 - 1.0 *  age
-        else:
-        # der input() öffnet ein Eingabefenster für den Nutzer und speichert die Eingabe
-            max_hr_bpm  = input("Enter maximum heart rate:")
-        return int(max_hr_bpm)
-    
-    def calc_age(birthdate):
-        date = datetime.strptime(birthdate, '%d.%m.%Y').date()
-        current_date = datetime.now()
-        return relativedelta(current_date, date).years
+
 
         
 
@@ -49,5 +36,21 @@ class Subject(Person):
         super().__init__(first_name, last_name)
         self.sex = sex
         self.birthdate = birthdate
-        self.age = self.calc_age(birthdate)
+        self.age = self.calc_age(self.birthdate)
         self.max_heartrate = self.estimate_max_hr(self.sex, self.age)
+
+    
+    def estimate_max_hr(self, sex, age):
+        if sex == "male":
+            max_hr_bpm =  223 - 0.9 * age
+        elif sex == "female":
+            max_hr_bpm = 226 - 1.0 *  age
+        else:
+        # der input() öffnet ein Eingabefenster für den Nutzer und speichert die Eingabe
+            max_hr_bpm  = input("Enter maximum heart rate:")
+        return int(max_hr_bpm)
+    
+    def calc_age(self, birthdate):
+        date = datetime.strptime(birthdate, '%d.%m.%Y').date()
+        current_date = datetime.now()
+        return relativedelta(current_date, date).years

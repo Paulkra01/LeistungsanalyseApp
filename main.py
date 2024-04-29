@@ -19,7 +19,6 @@ if __name__ == "__main__":
         sex=input("subject sex: "),
         birthdate=input("subject birthdate (dd.mm.yyyy): "))
 
-
     experiment = mc.Experiment(experiment_name, date, f"{supervisor.first_name} {supervisor.last_name}", f"{subject.first_name} {subject.last_name}")
 
     if not os.path.exists("jsons"):
