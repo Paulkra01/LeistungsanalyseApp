@@ -1,4 +1,5 @@
 import json
+import requests
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
@@ -11,8 +12,17 @@ class Person():
         with open(file_name, "w") as file:
             json.dump(self.__dict__, file)
 
+    def put(self, first_name):
+        url = "http://127.0.0.1:5000"
+        
+        data = {
+            "first_name": self.first_name
+        }
 
+        data_json = json.dumps(data)
 
+        response = requests.put(url, data=data_json)
+        print(response.text)
         
 
 class Experiment():
@@ -32,10 +42,11 @@ class Supervisor(Person):
         super().__init__(first_name, last_name)
 
 class Subject(Person):
-    def __init__(self, first_name, last_name, sex, birthdate):
+    def __init__(self, first_name, last_name, sex, birthdate, email):
         super().__init__(first_name, last_name)
         self.sex = sex
         self.birthdate = birthdate
+        self.email = email
         self.age = self.calc_age(self.birthdate)
         self.max_heartrate = self.estimate_max_hr(self.sex, self.age)
 
@@ -54,3 +65,6 @@ class Subject(Person):
         date = datetime.strptime(birthdate, '%d.%m.%Y').date()
         current_date = datetime.now()
         return relativedelta(current_date, date).years
+    
+    def update_email():
+        pass
